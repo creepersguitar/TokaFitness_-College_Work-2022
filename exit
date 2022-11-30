@@ -1,0 +1,4 @@
+def exit_app():
+	""" Destroys the application """
+	app.destroy()
+#
