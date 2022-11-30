@@ -1,0 +1,48 @@
+def open_signup_AfterLogin():
+	Loginwindow.hide()
+	Signupwindow.show()
+#
+def open_Login_window():
+	""" Opens one window closes another """
+	app.hide()
+	Loginwindow.show()
+#
+def close_Login_window():
+	""" Closes one window and opens another """
+	Loginwindow.hide()
+	app.show()
+#
+def open_signup_Window():
+	""" opens one window and closes another """
+	app.hide()
+	Signupwindow.show()
+#
+def open_dashboard():
+	""" Closes one window opens another """
+	Loginwindow.hide()
+	dashboard_Window.show()
+#
+def close_dashboard():
+	""" Close one window opens another """
+	dashboard_window.hide()
+	app.show()
+#
+def close_Signup_window():
+	""" Closes one window and opens another """
+	Signupwindow.hide()
+	app.show()
+#
+def login_Signup():
+	""" Closes one window and opens another """
+	Signupwindow.hide()
+	Loginwindow.show()
+#
+def open_forgot_window():
+	""" opens one window and closes another"""
+	Loginwindow.hide()
+	forgot_window.show()
+#
+def close_forgot_window():
+	""" Closes one window and opens another"""
+	forgot_window.hide()
+	app.show()
