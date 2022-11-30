@@ -1,0 +1,9 @@
+def dark_Toggle():
+	""" This changes the Background colour and text colour"""
+	app.bg = '#2C5364'
+	app.text_color = '#ec38bc'
+#
+def light_Toggle():
+	""" This changes the Background colour and text colour"""
+	app.bg = '#E0EAFC'
+	app.text_color = '#4A00E0'
