@@ -1,1 +1,22 @@
-
+def Signup_Validation():
+	if username_boxs.value == "" and re.search('[a-z]', username_boxs.value) is None and re.search('[A-Z]', username_boxs.value) is None:
+		info("Error", "please enter your username")
+	elif pasword_boxS.value == "" and password_boxS.value < 7:
+		info("Error", "Please enter your password greater than 7 characters")
+	elif re.search('[0-9]', pasword_boxS.value) is None and re.search('[a-z]', pasword_boxS.value) is None and re.search('[A-Z]', pasword_boxS.value) is None:
+		info("Error", "Your password must have numbers and letters")
+	elif firstName_Box.value == "":
+		info("Error", "You must enter your first name")
+	elif Lastnamebox.value == "":
+		info("Error", "You must enter your last name")
+	elif DOBox.value == "":
+		info("Error", "You must enter your Date of Birth")
+	elif Subscribe.value == 0:
+		info("Error", "You must tick the box for the subscription service")
+	else:
+		pw = pasword_boxS.value
+		pw = hashlib.sha512(pw.encode('utf-8')).hexdigest()
+		insertSQL = "INSERT INTO Customer_Table (username, password, firstName, Lastname, DOB, Subscription) VALUES ('"+ str(username_boxs.value) + "', '" + str(pw) + "', '" + str(firstName_Box.value) + "', '" + str(Lastnamebox.value) + "', '" + str(DOBox.value) + "', '" + str(Subscribe.value)+"')"
+		execute_sql(database_file, insertSQL)
+		info("Successfull", "account created under:" + firstName_Box.value)
+		login_Signup()
