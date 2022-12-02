@@ -1,1 +1,26 @@
-
+####################################
+# login validation                 #
+####################################
+def Login_Validation():
+    password = pasword_Textbox.value
+    password = hashlib.sha512(password.encode('utf-8')).hexdigest()
+    if username_box.value == "" and username_box.value.isalpha() != False:					# if value equals to nothing then
+        info("Error", "You must enter a valid username")	# error message
+    elif pasword_Textbox.value == "" and pasword_Textbox.value >7:		# if password equals to nothing and less than 7
+        info("Error", "You must enter a password")		# error message
+    elif re.search("[~'=]", pasword_Textbox.value) is not None:
+        info("Error", "SQL injection letters used")
+    else:
+        sqlselect = ("SELECT * from Customer_Table where username = "+ "'"+ str(username_box.value)+"'"+ " AND password = "+ "'" + str(password) + "'")
+        rows = query_database(database_file, sqlselect)
+        if len(rows) == 0:
+            info("Error", "Account disabled please create account to continue...")
+            open_signup_AfterLogin()
+        else:
+            passw = rows[0][2]
+            if passw == password:
+                info("Success", "Login details correct Welcome " + username_box.value)
+                open_dashboard()
+            else:
+                info("Error", "Account disabled please create account to continue...")
+                open_signup_AfterLogin()
