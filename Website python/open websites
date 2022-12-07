@@ -1,0 +1,7 @@
+# import webbrowser used to open websites
+import webbrowser
+
+bbc = "https://www.bbcgoodfood.com/recipes/spicy-meatballs-chilli-black-beans"
+def food_Advice():
+    info("Food","press okay to open a link for food advice")
+    return webbrowser.open(bbc)
