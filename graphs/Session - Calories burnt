@@ -1,0 +1,21 @@
+import pandas as pd
+# import pandas is used to handle data
+import matplotlib.pyplot as plt
+# import matplotlib used to make graphs
+
+def analyse_Graph():
+    """ This is used to analyse the graph """
+    global customerID
+    conn = sqlite3.connect ("Fitness.db")
+    c = conn.cursor()
+    # get information
+    sqlselect = "SELECT DateOfSession, CaloriesBurnt FROM SessionLog_Table WHERE customerID = " + str(customerID)
+    c.execute(sqlselect)
+    df = pd.DataFrame(c.fetchall(), columns = ["Date of Session", "Calories burnt"])
+    plt.plot(df['Calories burnt'],df['Date of Session'])
+    plt.xlabel('Calories burnt')
+    plt.ylabel('Date of session')
+    plt.title('Calories burnt on day of session')
+    plt.savefig('DateCalories.png')
+    plt.show()
+    plt.close()
