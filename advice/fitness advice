@@ -1,0 +1,5 @@
+####################################
+# free fitness advice              #
+####################################
+def fitness_Advice():
+  info("Fitness", "Do push ups")
