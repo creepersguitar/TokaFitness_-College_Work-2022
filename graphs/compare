@@ -1,0 +1,32 @@
+####################################
+# compare stats                    #
+####################################
+def comparenow():
+    """ This is the function to compare your stats with another persons """
+    conns = sqlite3.connect (DATABASE_FILE)
+    # creates a cursor
+    c_local = conns.cursor()
+    # sets global variable
+    global otherPeopleCombo
+    sqlselect = "SELECT DateOfSession, CaloriesBurnt FROM SessionLog_Table WHERE username = " + str(otherPeopleCombo)
+    # selects two things from session table where username = variable
+    c_local.execute(sqlselect)
+    # executes sql
+    d_f = pd.DataFrame(c_local.fetchall(), columns = ["Date of Session", "Calories burnt"])
+    # creates dataframe and fetches all and sets all columns
+    plt.plot(d_f['Calories burnt'], d_f['Date of Session'])
+    # plots calories and date
+    plt.xlabel('Calories burnt')
+    # plots x axis label
+    plt.ylabel('Date of session')
+    # plots y axis label
+    plt.title('Calories burnt on day of session')
+    # makes title
+    plt.savefig('DateCalories.png')
+    # saves image
+    info("People", "This is the persons data in a graph to show :)")
+    # info box
+    plt.show()
+    # shows image
+    plt.close()
+    # closes image
