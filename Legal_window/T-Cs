@@ -1,0 +1,10 @@
+####################################
+# Legal window                     #
+####################################
+legalwindow = Window(app, title="Legal window", height=1000, width=1000)
+f = open("terms and conditions.txt","r", encoding="utf-8")
+T_C = f.read()
+T_cs = T_C.split(",")
+T_Cs = ListBox(legalwindow, items=T_cs, height=200, width=1000)
+confirm = PushButton(legalwindow, text="Click here to confirm you have read all of this", command=close_legal)
+legalwindow.hide()
