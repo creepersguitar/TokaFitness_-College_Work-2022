@@ -1,0 +1,18 @@
+""" These are the main imports used to help make my code run """
+#This is needed for the sql database
+import sqlite3
+# this is needed to chek if the database exists
+import os
+import os.path
+# import haslib is used to encrypt the password data
+import hashlib
+# import re is used to reject any wrong inputs
+import re
+# import webbrowser used to open websites
+import webbrowser
+# import matplotlib used to make graphs
+import matplotlib.pyplot as plt
+# this is used to make the main application
+from guizero import App, Window, PushButton, Text, CheckBox, TextBox, Picture, Box, info, ListBox
+# import pandas is used to handle data
+import pandas as pd
