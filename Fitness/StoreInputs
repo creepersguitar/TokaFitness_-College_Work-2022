@@ -1,0 +1,26 @@
+####################################
+# store data                       #
+####################################
+def store_data():
+    """ This is the function to store fitness data """
+    if username_Box.value == "":
+        # if theres input then
+        info("Error", "Please enter your username")
+    elif TypeSessionBox.value == "":
+        # if theres input then
+        info("Error","Please enter an exercise")
+    elif TimeDoingSessionBox.value == "" and TimeDoingSessionBox.value <= '0':
+        # if theres input and less than or equals to 0
+        info("Error","Please enter a length of time doing the exercise")
+    elif DateofSessionTextBox.value == "" and DateofSessionTextBox.value !=  "%d/%m/%Y":
+        # if theres input and format
+        info("Error", "please enter a date you did this exercise")
+    elif CaloriesBox.value == "" and CaloriesBox.value <= '100':
+        # if theres input and less than 100 then
+        info("Error", "You must enter calories greater than 100")
+    else:
+        insertsql = "INSERT INTO SessionLog_Table (TypeOfSession, TimeDoingSession, DateOfSession, CaloriesBurnt) VALUES('"+ str(TypeSessionBox.value) + "', '"+ str(TimeDoingSessionBox.value) + "', '" + str(DateofSessionTextBox.value) + "','" + str(CaloriesBox.value)+ "')"
+        # inserts sql statement
+        execute_sql(DATABASE_FILE, insertsql)
+        # executes sql statement
+        info("Success", "Data Stored")
