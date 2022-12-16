@@ -1,0 +1,21 @@
+####################################
+# free fitness advice              #
+####################################
+def fitness_advice():
+    """ This is the function to help give free fitness advice """
+    info("Fitness","read link below")
+    # opens web page
+    return webbrowser.open("https://www.self.com/story/fitness-tips-trainers-give-beginner-clients")
+####################################
+# customised fitness advice daily  #
+####################################
+def daily():
+    """ This opens a link to a web page """
+    info("Daily burn", "Click okay to open link to daily burns website")
+    return webbrowser.open("https://dailyburn.com/")
+####################################
+# pfm fitness advice               #
+####################################
+def pfm():
+    info("Pfm fitness", "Click okay to open link to pfm website")
+    return webbrowser.open("https://www.pfmfitness.co.uk/")
