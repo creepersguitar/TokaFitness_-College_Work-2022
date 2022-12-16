@@ -1,0 +1,25 @@
+####################################
+# free/customised bbc food advice  #
+####################################
+BBC = "https://www.bbcgoodfood.com/recipes/spicy-meatballs-chilli-black-beans"
+def food_advice():
+    """ This is the function to help give free food advice """
+    info("Food","press okay to open a link for food advice by bbc good food")
+    # opens web page
+    return webbrowser.open(BBC)
+####################################
+# daily burn page                  #
+####################################
+def dailyburn_advice():
+    """ This opens a website """
+    info("Food","Press okay to open a link to daily burn food page")
+    # opens web page
+    return webbrowser.open("https://dailyburn.com/life/health/low-calorie-foods-feel-full/")
+####################################
+# good house keeping               #
+####################################
+def ghk_advice():
+    """ this opens a website """
+    info("Food","Press okay to open a link to good house keeping page")
+    # opens web page
+    return webbrowser.open("https://www.goodhousekeeping.com/food-recipes/healthy/g4259/low-calorie-meals/")
