@@ -1,0 +1,40 @@
+####################################
+# update subscription              #
+####################################
+def change_subscription():
+    """ This is used to update from free content to premium """
+    value = 1
+    # sql statement
+    sqlupdate= "UPDATE Customer_Table SET Subscription = " + "'"+ str(value)+ "'"
+    # executes sql
+    execute_sql(DATABASE_FILE, sqlupdate)
+    # tells user subscription updated
+    info("Congrats", "Your subscription is now updated")
+    # calls function
+    close_subscription_open_paid()
+    
+    
+    
+####################################
+# go premium                       #
+####################################
+# name of window
+premium = Window(app, title="Update to premium", width=600, height=600)
+# title of window
+premiumTitle = Text(premium, text="Please update details to see premium features")
+# logo of company
+Logo = Picture(premium, image="TokaFitnessLogo.jpg", width=400, height=200)
+# check box for user to tick
+premiumbox = CheckBox(premium, text="I am willing to head from free to paid content")
+# button for user to press
+premiumBtn = PushButton(premium, text="Update now!", command=change_subscription)
+# box to store buttons
+btn_boxP = Box(premium, width="fill", align="bottom")
+# button to turn into dark mode
+Dark_mode = PushButton(btn_boxP, text="Dark Mode!", command=dark_toggle, align="left")
+# button to turn into light mode
+Light_mode = PushButton(btn_boxP, text="Light Mode!", command=light_toggle, align="left")
+# button to head back a page
+back_btn = PushButton(btn_boxP, text="Head Back Here!", command=close_premium, align="right")
+# hides window
+premium.hide()
