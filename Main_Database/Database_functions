@@ -1,0 +1,36 @@
+#
+#
+#Delete the database, only if it exists
+#
+#
+if os.path.exists(DATABASE_FILE):
+    os.remove(DATABASE_FILE)
+#
+#Connect to the database
+conn = sqlite3.connect(DATABASE_FILE) #Connection is called 'conn'
+#Get a cursor pointing to the database
+cursor = conn.cursor()
+#Create the tables
+cursor.executescript(SQL) # creates from DDL above, script more than 1 command
+#Commit to save everything
+conn.commit()				# Close the connection to the database
+#
+def query_database(database, query):				# name of query statement
+    """ Queries the database for the query """
+    lconn = sqlite3.connect(database)
+    cur = lconn.cursor()			# use a local cursor
+    cur.execute(query)							# executes query
+    rows = cur.fetchall()				# fetches all
+    cur.close()							# closes cursor
+    return rows							# returns rows
+#
+#
+#Executes the sql statement to INSERT and UPDATE rows
+#
+def execute_sql(database, sql_statement):				# name of execute statement
+    """ Executes the sql statement """
+    lconn = sqlite3.connect(database)					# connects to local cursor
+    cur = lconn.cursor()								# sets cur to local cursor
+    cur.execute(sql_statement)								# execute sql statement
+    lconn.commit()												# commits the Lconn
+    return cur.lastrowid										# returns the last row id
