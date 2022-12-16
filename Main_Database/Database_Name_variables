@@ -1,0 +1,3 @@
+# this is the set variables for different stuff like database and id
+DATABASE_FILE = 'Fitness.db'
+CUSTOMERID = 1
