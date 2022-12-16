@@ -1,0 +1,50 @@
+# this is all of the SQL written in python which i can't comment unless i want to change the data
+SQL = """
+
+CREATE TABLE "Customer_Table" (
+"customerID" INTEGER NOT NULL,
+"username" TEXT,
+"password" TEXT,
+"firstName" TEXT,
+"Lastname" TEXT,
+"DOB" TEXT,
+"Subscription" INTEGER,
+PRIMARY KEY("customerID" AUTOINCREMENT)
+);
+INSERT INTO Customer_Table (username, password, firstName, Lastname, DOB, Subscription) VALUES ('userbob', '74c11d340b16aeee74f41eca097945df9e2f0eb2abb66741f1e269e5b46272a947d15ff83196e58859d778e376983825e5c99fce476b74e0fd0bca16cbd36a21', 'Bob', 'Marley', '19/05/1985', 1);
+INSERT INTO Customer_Table (username, password, firstName, Lastname, DOB, Subscription) VALUES ('userGeorge', 'b72ecf24a9717fd4df139cb6137af098cb4e24c7d2e74ce276ed3a48d122e9c64bc1fb7534018c8922b9ed65cd6a440805651aeeca8c34b07c5c36f7f810e6f9', 'George', 'Harris', '05/07/2004', 1);
+INSERT INTO Customer_Table (username, password, firstName, Lastname, DOB, Subscription) VALUES ('userJoe', '2dd23e029cede3db22c54d0fe749fc993d5b7f206ca6cbb9ed58e3e3a030e074bcbc282e8e955f84820467e4ce01ae0812a82dfd4665587dc56389ebbe82334f', 'Joe', 'barch', '31/10/1999', 0);
+
+CREATE TABLE "Food_Table" (
+"foodID" INTEGER NOT  NULL,
+"RecipesURL" TEXT,
+"PriceOfRecipes" REAL,
+"CaloriesIntake" INTEGER,
+PRIMARY KEY ("foodID" AUTOINCREMENT)
+);
+INSERT INTO Food_Table (RecipesURL, PriceOfRecipes, CaloriesIntake) VALUES ('https://dailyburn.com/life/health/low-calorie-foods-feel-full/', 15.50, 300);
+INSERT INTO Food_Table (RecipesURL, PriceOfRecipes, CaloriesIntake) VALUES ('https://www.bbcgoodfood.com/recipes/spicy-meatballs-chilli-black-beans', 19.99, 550);
+INSERT INTO Food_Table (RecipesURL, PriceOfRecipes, CaloriesIntake) VALUES ('https://www.goodhousekeeping.com/food-recipes/healthy/g4259/low-calorie-meals/', 9.99, 600);
+
+CREATE TABLE "SessionLog_Table" (
+"sessionID" INTEGER NOT NULL,
+"TypeOfSession" TEXT,
+"TimeDoingSession" TEXT,
+"CaloriesBurnt" INTEGER,
+"DateOfSession" TEXT,
+"customerID" INTEGER,
+"foodID" INTEGER,
+PRIMARY KEY("sessionID" AUTOINCREMENT),
+CONSTRAINT "customerID_fk" FOREIGN KEY ("customerID") REFERENCES "Customer_Table" ("customerID"),
+CONSTRAINT "foodID_fk" FOREIGN KEY ("foodID") REFERENCES "Food_Table" ("foodID")
+);
+INSERT INTO SessionLog_Table (TypeOfSession, TimeDoingSession, DateOfSession, CaloriesBurnt, customerID, foodID) VALUES ('Running', '30', '05/12/2022', 550, 1, 2);
+INSERT INTO SessionLog_Table (TypeOfSession, TimeDoingSession, DateOfSession, CaloriesBurnt, customerID, foodID) VALUES ('Swimming','30','07/12/2022', 556, 1, 2);
+INSERT INTO SessionLog_Table (TypeOfSession, TimeDoingSession, DateOfSession, CaloriesBurnt, customerID, foodID) VALUES ('jogging','50','10/12/2022', 579, 1, 2);
+INSERT INTO SessionLog_Table (TypeOfSession, TimeDoingSession, DateOfSession, CaloriesBurnt, customerID, foodID) VALUES ('Pressups', '25', '18/01/2023', 701, 3, 1);
+INSERT INTO SessionLog_Table (TypeOfSession, TimeDoingSession, DateOfSession, CaloriesBurnt, customerID, foodID) VALUES ('Pushups', '25', '18/01/2023', 325, 3, 1);
+INSERT INTO SessionLog_Table (TypeOfSession, TimeDoingSession, DateOfSession, CaloriesBurnt, customerID, foodID) VALUES ('Cycling', '25', '18/01/2023', 852, 3, 1);
+INSERT INTO SessionLog_Table (TypeOfSession, TimeDoingSession, DateOfSession, CaloriesBurnt, customerID, foodID) VALUES ('Pushups', '20', '25/12/2022', 605, 2, 3);
+INSERT INTO SessionLog_Table (TypeOfSession, TimeDoingSession, DateOfSession, CaloriesBurnt, customerID, foodID) VALUES ('Pushups', '20', '25/12/2022', 695, 2, 3);
+INSERT INTO SessionLog_Table (TypeOfSession, TimeDoingSession, DateOfSession, CaloriesBurnt, customerID, foodID) VALUES ('Pushups', '20', '25/12/2022', 799, 2, 3);
+"""
