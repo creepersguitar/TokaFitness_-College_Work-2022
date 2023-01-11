@@ -1,8 +1,4 @@
-#
-#
 #Delete the database, only if it exists
-#
-#
 if os.path.exists(DATABASE_FILE):
     os.remove(DATABASE_FILE)
 #
@@ -24,9 +20,7 @@ def query_database(database, query):				# name of query statement
     cur.close()							# closes cursor
     return rows							# returns rows
 #
-#
 #Executes the sql statement to INSERT and UPDATE rows
-#
 def execute_sql(database, sql_statement):				# name of execute statement
     """ Executes the sql statement """
     lconn = sqlite3.connect(database)					# connects to local cursor
