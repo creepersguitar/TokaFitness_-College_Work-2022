@@ -1,0 +1,15 @@
+Loginwindow.tk.attributes("-alpha", 0)
+# hides window
+Loginwindow.hide()
+
+
+# .hide() has to be after attributes
+
+
+def login_signup():
+    """ Closes one window and opens another """
+    Signupwindow.hide()
+    Loginwindow.tk.attributes("-alpha", 1)
+    Loginwindow.show()
+    
+# attributes has to be before window shows
