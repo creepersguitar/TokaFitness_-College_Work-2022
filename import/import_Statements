@@ -16,3 +16,5 @@ import matplotlib.pyplot as plt
 from guizero import App, Window, PushButton, Text, CheckBox, TextBox, Picture, Box, info, ListBox
 # import pandas is used to handle data
 import pandas as pd
+# tkinter is used to help stop any flickering pages
+import tkinter as tk
