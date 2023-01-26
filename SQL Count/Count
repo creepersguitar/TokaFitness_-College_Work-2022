@@ -1,0 +1,4 @@
+SQLseats = "SELECT COUNT(****) FROM ****"
+rows = query_database(database_file, SQLseats)
+total = rows[0][0]
+info("Count", "You have sold" + str(total) + "tickets in total")
