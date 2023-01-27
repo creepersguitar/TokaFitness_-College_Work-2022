@@ -1,0 +1,9 @@
+####################################
+# Total Price                      #
+####################################
+def totalPrice():
+    """ This is a function to show total price from seats sold """
+    SQLprice = "SELECT SUM(seatPrice) FROM seat_Table"
+    rows = query_database(DATABASE_FILE, SQLprice)
+    pricetotal = rows[0][0]
+    info("Total", "Your total cost of seats sold, £" + str(pricetotal))
