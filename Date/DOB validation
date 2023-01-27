@@ -1,0 +1,11 @@
+from datetime import datetime
+
+def DOB(Date):
+    try:
+        date_obj = datetime.strptime(Date, '%d-%m-%Y')
+        return True
+    except ValueError:
+        return False
+
+date_input = input("Please enter a date: ")
+DOB(date_input)
