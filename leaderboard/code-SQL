@@ -1,18 +1,19 @@
-####################################
-# leaderboad                       #
-####################################
 def leaderboard_competition():
     """ This is the function to show a leaderboard """
     lconn = sqlite3.connect(DATABASE_FILE)
+    # select field and sum calories burnt puts it into the total from two tables
+    # where the id in both tables are same and then its grouped by customerId from customer table going descending
     sqlSelect = """SELECT username, SUM(CaloriesBurnt) as Total FROM SessionLog_Table, Customer_Table
     WHERE Customer_Table.customerID = SessionLog_Table.customerID GROUP BY Customer_Table.customerID ORDER BY Total DESC """
-    lconn = conn.cursor()
+    # sets variable to local connection with a cursor
+    cur = lconn.cursor()
+    # sets variable to execute the sql statement
     result = cursor.execute(sqlSelect)
+    # sets variable to fetchall
     result = cursor.fetchall()
+    # prints the result
     print(result)
-    for i in enumerate(0, len(result)):
+    # for the variable in range from start to length of variable do this
+    for i in range(0, len(result)):
+        # append a list with variables
         Leaderboard.append(result[i])
-        
-        
-        
-        Leaderboard = ListBox(Socialwindow)
