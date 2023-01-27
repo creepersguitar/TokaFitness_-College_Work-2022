@@ -1,21 +1,28 @@
-import pandas as pd
-# import pandas is used to handle data
-import matplotlib.pyplot as plt
-# import matplotlib used to make graphs
-
-def analyse_Graph():
+####################################
+# graph for data                   #
+####################################
+def analyse_graph():
     """ This is used to analyse the graph """
-    global customerID
-    conn = sqlite3.connect ("Fitness.db")
-    c = conn.cursor()
+    conns = sqlite3.connect (DATABASE_FILE)
+    # makes a cursor and sets to variable
+    c_local = conns.cursor()
     # get information
-    sqlselect = "SELECT DateOfSession, CaloriesBurnt FROM SessionLog_Table WHERE customerID = " + str(customerID)
-    c.execute(sqlselect)
-    df = pd.DataFrame(c.fetchall(), columns = ["Date of Session", "Calories burnt"])
-    plt.plot(df['Calories burnt'],df['Date of Session'])
+    sqlselect = "SELECT DateOfSession, CaloriesBurnt FROM SessionLog_Table WHERE customerID = " + str(CUSTOMERID)
+    # selects two things from table where customer id equals vairable
+    c_local.execute(sqlselect)
+    # executes sql statement
+    d_f = pd.DataFrame(c_local.fetchall(), columns = ["Date of Session", "Calories burnt"])
+    # makes dataframe by fetching everything and setting columnd to date and calories burnt
+    plt.plot(d_f['Calories burnt'],d_f['Date of Session'])
+    # plots the data
     plt.xlabel('Calories burnt')
+    # sets x axis label
     plt.ylabel('Date of session')
+    # plots y label axis
     plt.title('Calories burnt on day of session')
+    # plots title
     plt.savefig('DateCalories.png')
+    # saves plot
     plt.show()
+    # shows graph
     plt.close()
