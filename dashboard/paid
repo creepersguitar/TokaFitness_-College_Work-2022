@@ -1,0 +1,54 @@
+####################################
+# Paid dashboard GUI               #
+####################################
+paid_window = Window(app, title="Paid Customer Dashboard", height=800, width=800)
+paid_window.tk.attributes("-alpha", 0)
+# hides window
+paid_window.hide()
+# main title for page
+paidTitle = Text(paid_window, text=" Welcome to TokaFitness paid dashboard! ")
+# gives an box to store a button
+options_box = Box(paid_window, width="fill", align="top")
+# button to head to the customised food page
+cusFood = PushButton(paid_window, text="Customisable food plans here!! ", command=open_cusfood_window)
+# button to head to custmoised fitness page
+Advice_Fitness = PushButton(paid_window, text="Customisable fitness here!! ", command=open_fitness_window)
+# shows a graph
+graph_btn = PushButton(options_box, text="View a graph here! ",
+                       width="fill", align="left", command=analyse_graph)
+# main logo
+Logo = Picture(paid_window, image="TokaFitnessLogo.jpg", width=400, height = 200)
+# instruction for user
+username = Text(paid_window, text="Enter your username")
+# space to allow input
+username_Box = TextBox(paid_window)
+# instruction for user
+TypeSession = Text(paid_window, text="Enter the type of session you did: ")
+# space to allow input
+TypeSessionBox = TextBox(paid_window)
+# instruction for user
+TimeDoingSession = Text(paid_window, text="Enter the length of time in minutes e.g. 256: ")
+# space to allow input
+TimeDoingSessionBox = TextBox(paid_window)
+# instruction for user
+DateofSessionText = Text(paid_window, text="Enter the date of the session: ")
+# space to allow input
+DateofSessionTextBox = TextBox(paid_window)
+# instruction for user
+Calories = Text(paid_window, text="Enter the number of calories you burnt: ")
+# space for user
+CaloriesBox = TextBox(paid_window)
+# button to save inputs
+Save_Btn = PushButton(paid_window, text="Save your inputs here!", command=store_data)
+# button to see social page
+Social = PushButton(paid_window, text="Social feature here!", command=open_social)
+# spacing
+blank_Space = Text(paid_window, text="   ")
+# box to store buttons
+btn_boxP = Box(paid_window, width="fill", align="bottom")
+# button to head to dark mode
+Dark_mode = PushButton(btn_boxP, text="Dark Mode!", command=dark_toggle, align="left")
+# button to head to light mode
+Light_mode = PushButton(btn_boxP, text="light Mode!", command=light_toggle, align="left")
+# button to head back
+back_btn = PushButton(btn_boxP, text="Head Back Here!", command=close_paid, align="right")
