@@ -1,4 +1,22 @@
-SQLseats = "SELECT COUNT(****) FROM ****"
-rows = query_database(database_file, SQLseats)
-total = rows[0][0]
-info("Count", "You have sold" + str(total) + "tickets in total")
+def countsearch():
+    """ This is a function to count how many seats are sold """
+    SQLseats = "SELECT COUNT(seatID) FROM seat_Table"
+    rows = query_database(DATABASE_FILE, SQLseats)
+    total = rows[0][0]
+    info("Count", "You have sold, " + str(total) + " tickets in total")
+#
+def countfriay():
+    """ This is a function to count how many seats are sold """
+    SQLseats = "SELECT COUNT(seatID) FROM seat_Table WHERE seatDay = 'Friday' "
+    rows = query_database(DATABASE_FILE, SQLseats)
+    fri_Tot = rows[0][0]
+    info("Count", "You have sold, " + str(fri_Tot) + " tickets in total on Friday")
+    return fri_Tot
+#
+def countsaturday():
+    """ This is a function to count how many seats are sold """
+    SQLseats = "SELECT COUNT(seatID) FROM seat_Table WHERE seatDay = 'Saturday' "
+    rows = query_database(DATABASE_FILE, SQLseats)
+    sat_Tot = rows[0][0]
+    info("Count", "You have sold, " + str(sat_Tot) + " tickets in total on Saturday")
+    return sat_Tot
