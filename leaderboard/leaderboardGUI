@@ -1,0 +1,29 @@
+####################################
+# Social Feature GUI               #
+####################################
+Socialwindow = Window(app, title="Social Feature", height=600, width=600)
+# title page
+Socialwindow.tk.attributes("-alpha", 0)
+# hides window
+Socialwindow.hide()
+SocailTitle = Text(Socialwindow, text=" Welcome to TokaFitness Social Page! ")
+# main logo for company
+Logo = Picture(Socialwindow, image="TokaFitnessLogo.jpg", width=400, height = 200)
+# instruction for user
+otherPeopleText = Text(Socialwindow,
+                       text="Click the button to see other peoples stats")
+# text for user to see
+otherPeopleText = Text(Socialwindow,
+                       text="For burning Calories")
+# button to compare stats
+compare = PushButton(Socialwindow, text="Compare now!", command=leaderboard_competition)
+#listbox for the user to see
+Leaderboard = ListBox(Socialwindow)
+# box to store buttons
+btn_boxS = Box(Socialwindow, width="fill", align="bottom")
+# button to turn into dark mode
+Dark_mode = PushButton(btn_boxS, text="Dark Mode!", command=dark_toggle, align="left")
+# button to turn into light mode
+Light_mode = PushButton(btn_boxS, text="Light Mode!", command=light_toggle, align="left")
+# button to head back a page
+back_btn = PushButton(btn_boxS, text="Head Back Here!", command=close_social, align="right")
