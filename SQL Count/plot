@@ -1,0 +1,15 @@
+####################################
+# plot tickets                     #
+####################################
+def plotDate():
+    fri_find = countfriay()
+    sat_find = countsaturday()
+    x_list = ["Friday", "Saturday"]
+    y_list = [fri_find, sat_find]
+    plt.xlabel('Day of show')
+    plt.ylabel('tickets Sold')
+    plt.title('Tickets sold on friday and saturday')
+    plt.bar(x_list, y_list)
+    plt.savefig('ticketSold.jpg')
+    plt.show()
+    plt.close()
