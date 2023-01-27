@@ -1,48 +1,146 @@
-def open_signup_AfterLogin():
-	Loginwindow.hide()
-	Signupwindow.show()
+####################################
+# Windows                          #
+####################################
+def open_social():
+    """ Closes one window opens another """
+    paid_window.hide()
+    Socialwindow.tk.attributes("-alpha", 1)
+    Socialwindow.show()
 #
-def open_Login_window():
-	""" Opens one window closes another """
-	app.hide()
-	Loginwindow.show()
+def close_subscription_open_paid():
+    """ Closes one window opens another """
+    premium.hide()
+    paid_window.show()
 #
-def close_Login_window():
-	""" Closes one window and opens another """
-	Loginwindow.hide()
-	app.show()
+def open_legal():
+    """ closes one window opens another """
+    Signupwindow.hide()
+    legalwindow.tk.attributes("-alpha", 1)
+    legalwindow.show()
 #
-def open_signup_Window():
-	""" opens one window and closes another """
-	app.hide()
-	Signupwindow.show()
+def close_legal():
+    """ Closes one window opens another """
+    legalwindow.hide()
+    Signupwindow.show()
+    createAcc.enable()
+#
+def opensocial():
+    """ Closes one window opens another """
+    freeWindow.hide()
+    Socialwindow.tk.attributes("-alpha", 1)
+    Socialwindow.show()
+#
+def close_social():
+    """ Closes one window opens another """
+    Socialwindow.hide()
+    dashboard_Window.show()
+#
+def close_free():
+    """ Closes one window opens another """
+    freeWindow.hide()
+    dashboard_Window.show()
+#
+def open_free_dashboard():
+    """ Closes one window opens another """
+    dashboard_Window.hide()
+    freeWindow.tk.attributes("-alpha", 1)
+    freeWindow.show()
+#
+def open_paid_dashboard():
+    """ Closes one window opens another """
+    dashboard_Window.hide()
+    paid_window.tk.attributes("-alpha", 1)
+    paid_window.show()
+#
+def close_paid():
+    """ Closes one window opens another """
+    paid_window.hide()
+    dashboard_Window.show()
+#
+def open_signup_afterlogin():
+    """ Closes one window opens another """
+    Loginwindow.hide()
+    Signupwindow.show()
+#
+def open_login_window():
+    """ Opens one window closes another """
+    app.hide()
+    Loginwindow.tk.attributes("-alpha", 1)
+    Loginwindow.show()
+#
+def close_login_window():
+    """ Closes one window and opens another """
+    Loginwindow.hide()
+    app.show()
+#
+def open_signup_window():
+    """ opens one window and closes another """
+    app.hide()
+    Signupwindow.tk.attributes("-alpha", 1)
+    Signupwindow.show()
 #
 def open_dashboard():
-	""" Closes one window opens another """
-	Loginwindow.hide()
-	dashboard_Window.show()
+    """ Closes one window opens another """
+    Loginwindow.hide()
+    dashboard_Window.tk.attriutes("-alpha", 1)
+    dashboard_Window.show()
 #
 def close_dashboard():
-	""" Close one window opens another """
-	dashboard_window.hide()
-	app.show()
+    """ Close one window opens another """
+    dashboard_Window.hide()
+    app.show()
 #
-def close_Signup_window():
-	""" Closes one window and opens another """
-	Signupwindow.hide()
-	app.show()
+def close_signup_window():
+    """ Closes one window and opens another """
+    Signupwindow.hide()
+    app.show()
 #
-def login_Signup():
-	""" Closes one window and opens another """
-	Signupwindow.hide()
-	Loginwindow.show()
+def login_signup():
+    """ Closes one window and opens another """
+    Signupwindow.hide()
+    Loginwindow.tk.attributes("-alpha", 1)
+    Loginwindow.show()
 #
 def open_forgot_window():
-	""" opens one window and closes another"""
-	Loginwindow.hide()
-	forgot_window.show()
+    """ opens one window and closes another"""
+    Loginwindow.hide()
+    forgot_window.tk.attributes("-alpha", 1)
+    forgot_window.show()
 #
 def close_forgot_window():
-	""" Closes one window and opens another"""
-	forgot_window.hide()
-	app.show()
+    """ Closes one window and opens another"""
+    forgot_window.hide()
+    app.show()
+#
+def open_fitness_window():
+    """ Closes one window opens another """
+    paid_window.hide()
+    fitnesswindow.tk.attributes("-alpha", 1)
+    fitnesswindow.show()
+#
+def close_fitness_window():
+    """ Closes one window opens another """
+    fitnesswindow.hide()
+    paid_window.show()
+#
+def open_premium():
+    """ Closes one window opens another """
+    freeWindow.hide()
+    premium.tk.attributes("-alpha", 1)
+    premium.show()
+#
+def close_premium():
+    """ Closes one window opens another """
+    premium.hide()
+    freeWindow.show()
+#
+def open_cusfood_window():
+    """ Closes one window opens another """
+    paid_window.hide()
+    cusfood_window.tk.attributes("-alpha", 1)
+    cusfood_window.show()
+#
+def close_cusfood_window():
+    """ Closes one window opens another """
+    cusfood_window.hide()
+    paid_window.show()
