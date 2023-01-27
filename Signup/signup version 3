@@ -1,0 +1,62 @@
+####################################
+#  Signup						   #
+####################################
+def signup_validation():
+    """ This is the validation for the signup page """
+    if username_boxs.value == "" and re.search('[a-z]', username_boxs.value) is None:
+        # searches for letters and input otherwise
+        info("Error", "please enter your username")
+    elif pasword_boxs.value == "" and pasword_boxs.value < '7':
+        # searches for it to be greater than 7 and input otherwise
+        info("Error", "Please enter your password greater than 7 characters")
+    elif re.search('[0-9]', pasword_boxs.value) is None:
+        # searches for numbers otherwise
+        info("Error", "please enter a number within your password")
+    elif re.search('[a-z]', pasword_boxs.value) is None:
+        # searches for letters otherwise
+        info("Error", "Your password must have letters")
+    elif re.search('[)(*&^%$£"!{}_+-=#@;:]', pasword_boxs.value) is None:
+        # searches for symbols otherwise
+        info("Error", "Make sure that your password has special characters")
+    elif re.search("[~'=]", pasword_boxs.value) is not None:
+        # searches for characters otherwise
+        info("Error", "SQl injection attack detected... ")
+        # shows info box
+        info("Error", "App closing... ")
+        exit_app()
+    elif firstName_Box.value == "":
+        # searches for input otherwise
+        info("Error", "You must enter your first name")
+    elif Lastnamebox.value == "":
+        # searches for input otherwise
+        info("Error", "You must enter your last name")
+    elif DOBox.value == "":
+        # searches for input otherwise
+        info("Error", "You must enter your Date of Birth")
+    elif Subscribe.value == 1:
+        # checks for value to be 1 otherwise
+        info("Paid", "Paid content enabled for user")
+        p_w = pasword_boxs.value
+        p_w = hashlib.sha512(p_w.encode('utf-8')).hexdigest()       # hashes passwors
+        insertsql = "INSERT INTO Customer_Table (username, password, firstName, Lastname, DOB, Subscription) VALUES ('"+ str(username_boxs.value) + "', '" + str(p_w) + "', '" + str(firstName_Box.value) + "', '" + str(Lastnamebox.value) + "', '" + str(DOBox.value) + "', '" + str(Subscribe.value)+"')"
+        # inserts sql
+        execute_sql(DATABASE_FILE, insertsql)
+        # runs execute statement
+        info("Successfull", "account created under: " + firstName_Box.value)
+        login_signup()
+    elif free.value == 1:
+        # checks if value equals one otherwise
+        info("free", "Free content enabled")
+        p_w = pasword_boxs.value                                    # stores value
+        p_w = hashlib.sha512(p_w.encode('utf-8')).hexdigest()       # hashes password
+        insertsql = "INSERT INTO Customer_Table (username, password, firstName, Lastname, DOB, Subscription) VALUES ('"+ str(username_boxs.value) + "', '" + str(p_w) + "', '" + str(firstName_Box.value) + "', '" + str(Lastnamebox.value) + "', '" + str(DOBox.value) + "', '" + str(Subscribe.value)+"')"
+        # inserts sql statement
+        execute_sql(DATABASE_FILE, insertsql)
+        # executes sql statement
+        info("Successfull", "account created under: " + firstName_Box.value)
+        # shows info box
+        info("Don't Forget", "Don't forget you can go premium")
+        login_signup()
+    else:
+        # otherwise
+        info("Error", "Details missing check and click again")
