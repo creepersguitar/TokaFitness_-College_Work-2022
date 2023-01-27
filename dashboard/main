@@ -1,0 +1,27 @@
+####################################
+# Main dashboard GUI               #
+####################################
+dashboard_Window = Window(app, title="Main Dashboard", height=600, width=600)
+dashboard_Window.tk.attributes("-alpha", 0)
+# hides window
+dashboard_Window.hide()
+# title of the page
+dashboard_Title = Text(dashboard_Window, text="Welcome to the main dashboard for TokaFitness")
+# box to store a button
+options_box = Box(dashboard_Window, width="fill", align="top")
+# button to head to paid content
+Paid_Btn = PushButton(options_box,
+          text="Paid Content Click Here!", width="fill", align="left", command=open_paid_dashboard)
+# main logo of the application
+Logo = Picture(dashboard_Window, image="TokaFitnessLogo.jpg", width=400, height = 200)
+# button to head onto free content
+free_btn = PushButton(options_box, text="Free Content Click Here!",
+                      width="fill", align="left", command=open_free_dashboard)
+# box to store buttons
+btn_boxM = Box(dashboard_Window, width="fill", align="bottom")
+# button to turn program into dark mode
+Dark_mode = PushButton(btn_boxM, text="Dark Mode!", command=dark_toggle, align="left")
+# button to turn into light mode
+Light_mode = PushButton(btn_boxM, text="Light Mode!", command=light_toggle, align="left")
+# button to go back
+back_btn = PushButton(btn_boxM, text="Head back here!", command=close_dashboard, align="right")
