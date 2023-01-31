@@ -1,3 +1,12 @@
+def Log_In():
+    user = username_box.value
+    pass = password
+    log = Login_Validation()
+    if log == True:
+        open_dashboard()
+    else:
+        open_accafterLogin()
+        
 ####################################
 # login validation                 #
 ####################################
@@ -20,7 +29,7 @@ def Login_Validation():
             passw = rows[0][2]
             if passw == password:
                 info("Success", "Login details correct Welcome " + username_box.value)
-                open_dashboard()
+                return True
             else:
                 info("Error", "Account disabled please create account to continue...")
-                open_signup_AfterLogin()
+                return False
