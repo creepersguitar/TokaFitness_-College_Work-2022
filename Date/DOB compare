@@ -1,0 +1,19 @@
+from datetime import datetime
+
+def compare(dt1, dt2):
+  print('Date1:', dt1)
+  print('Date2:', dt2)
+
+
+  if dt1 > dt2:
+    print('Date one is greater than date 2')
+  else:
+    print('Date 1 is smaller than date 2')
+
+dt1 = datetime(2022, 9, 13) 
+today = datetime.now()
+compare(dt1, today)
+
+dt1 = datetime(2022, 9, 13) 
+dt2 = datetime(2022, 5, 5) 
+compare(dt1, dt2)
